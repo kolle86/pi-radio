@@ -1,0 +1,20 @@
+.background {
+    background-color: #778899;
+}
+
+.logo {
+    background-image: url("https://raw.githubusercontent.com/kolle86/pi-radio/master/home.png");
+}
+
+.progressBar {
+    background-color: #feb020;
+}
+
+.splash {
+    background-image: url("https://raw.githubusercontent.com/kolle86/pi-radio/master/home.png");
+}
+
+.watermark {
+    background-image: url("https://raw.githubusercontent.com/kolle86/pi-radio/master/home.png");
+    background-size: 57px 57px;
+}
