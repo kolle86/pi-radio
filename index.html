@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js">
+  </script>
+</head>
+<body>
+  
+    <p id="message"></p>
+    <cast-media-player></cast-media-player>
+
+    <style>
+        body {
+        --playback-logo-image: url('https://raw.githubusercontent.com/kolle86/pi-radio/master/home.png');
+        }
+        cast-media-player {
+        --theme-hue: 100;
+        --progress-color: #feb020;
+        --splash-image: url('https://raw.githubusercontent.com/kolle86/pi-radio/master/home.png');
+        }
+    </style>
+
+
+    <script>
+        const context = cast.framework.CastReceiverContext.getInstance();
+
+        // Update style using javascript
+        let playerElement = document.getElementsByTagName("cast-media-player")[0];
+        playerElement.style.setProperty('--splash-image', 'url("https://kolstr.hopto.org/home.png")');
+        
+        'use strict';
+        context.addCustomMessageListener('urn:x-cast:org.hopto.kolstr', function(customEvent) {
+            if(customEvent.data.type == "message"){
+                document.getElementById("message").innerHTML = customEvent.data.text;
+            }
+        });
+
+        context.start();
+    </script>
+</body>
+</html>
